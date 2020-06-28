@@ -77,7 +77,7 @@ class Element(object):
         Rewrite this element and call rewrite on all children.
         Call this base method before rewriting the element.
         """
-        for child in self.children():
+        for child in self.child_elements():
             child.rewrite()
 
     @property
@@ -124,7 +124,7 @@ class Element(object):
             if isinstance(obj, lazy_property):
                 delattr(self, name)
 
-    def children(self):
+    def child_elements(self):
         return
         yield  # empty generator
 
