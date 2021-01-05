@@ -25,7 +25,7 @@ class Element(object):
         """
         del self._error_messages[:]
 
-        for child in self.children():
+        for child in self.child_elements():
             child.validate()
 
     def is_valid(self):
@@ -66,7 +66,7 @@ class Element(object):
         """
         for msg in self._error_messages:
             yield self, msg
-        for child in self.children():
+        for child in self.child_elements():
             if not child.enabled or child.get_bypassed():
                 continue
             for element_msg in child.iter_error_messages():
